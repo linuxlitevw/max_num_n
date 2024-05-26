@@ -1,0 +1,24 @@
+def max_n_values(numbers, n):
+    """
+    Returns the top n maximum values from an array of numbers.
+
+    :param numbers: List of numbers.
+    :param n: Number of top maximum values to return.
+    :return: List of n maximum values.
+    """
+    if not numbers or n <= 0:
+        raise ValueError("Numbers list must not be empty and n must be greater than 0.")
+    
+    if n > len(numbers):
+        raise ValueError("n must not be greater than the length of the numbers list.")
+    
+    # Sort the list of numbers in descending order and take the first n elements
+    sorted_numbers = sorted(numbers, reverse=True)
+    max_values = sorted_numbers[:n]
+    
+    return max_values
+
+# Example usage:
+numbers = [10, 20, 15, 30, 5, 50, 40]
+n = 3
+print(max_n_values(numbers, n))  # Output: [50, 40, 30]
